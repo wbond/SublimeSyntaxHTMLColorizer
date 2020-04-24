@@ -1,0 +1,18 @@
+[
+    {
+        "caption": "Sublime Syntax: Highlight Code Block",
+        "command": "highlight_code_block"
+    },
+    {
+        "caption": "Sublime Syntax: Clear Code Block",
+        "command": "clear_code_block"
+    },
+    {
+        "caption": "Sublime Syntax: Highlight All Code Blocks",
+        "command": "highlight_all_code_blocks"
+    },
+    {
+        "caption": "Sublime Syntax: Clear All Code Block",
+        "command": "clear_all_code_blocks"
+    },
+]
