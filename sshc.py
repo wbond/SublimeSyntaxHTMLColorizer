@@ -178,7 +178,6 @@ class HighlightAllCodeBlocksCommand(sublime_plugin.TextCommand):
                 code_region = sublime.Region(open_tag.b, close_tag.a)
 
                 syntax, text = select_code(view, code_region)
-                print(code_region, syntax, text)
                 if syntax is None:
                     continue
 

@@ -12,7 +12,7 @@
         "command": "highlight_all_code_blocks"
     },
     {
-        "caption": "Sublime Syntax: Clear All Code Block",
+        "caption": "Sublime Syntax: Clear All Code Blocks",
         "command": "clear_all_code_blocks"
     },
 ]
