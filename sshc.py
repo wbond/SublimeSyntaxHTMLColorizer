@@ -126,24 +126,32 @@ def extract_tokens(panel, text):
 
 
 def highlight_tokens(panel, tokens):
+    scope = None
+    for s in sublime.list_syntaxes():
+        if s["path"] == panel.settings().get('syntax'):
+            scope = s["scope"]
+    default_foreground = panel.style_for_scope(scope).get('foreground')
+
     output = []
     for token in tokens:
         if token[0] == '\n':
             output.append(token[0])
         else:
             props = []
-            if token[1]:
+            if token[1] and token[1] != default_foreground:
                 props.append('color: ' + token[1])
             if token[2]:
                 props.append('font-weight: bold')
             if token[3]:
                 props.append('font-style: italic')
-            output.append('<span style="')
-            output.append('; '.join(props))
-            output.append('">')
+            if props:
+                output.append('<span style="')
+                output.append('; '.join(props))
+                output.append('">')
             output.append(html.escape(token[0]))
-            output.append('</span>')
-    return ''.join(output)
+            if props:
+                output.append('</span>')
+    return '<span style="color: ' + default_foreground + '">' + ''.join(output) + '</span>'
 
 
 def destroy_panel(window, panel):
