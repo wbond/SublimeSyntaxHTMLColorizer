@@ -237,12 +237,13 @@ class ClearAllCodeBlocksCommand(sublime_plugin.TextCommand):
                 continue
 
             stripped_text = strip_highlighting(text)
+            text = html.escape(stripped_text, quote=False)
 
-            tp += len(stripped_text) - len(code_region)
+            tp -= len(code_region) - len(text)
             view.replace(
                 edit,
                 code_region,
-                stripped_text
+                text
             )
 
 
